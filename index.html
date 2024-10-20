@@ -12,6 +12,7 @@
         <h1 class="text-center">Calculadora Estadística</h1>
 
         <!-- Distribución Normal -->
+        <!-- Distribución Normal -->
         <div class="card mt-4">
             <div class="card-body">
                 <h5 class="card-title">Distribución Normal</h5>
@@ -29,10 +30,20 @@
                         <input type="number" class="form-control" id="normalStdDev" placeholder="Ingresa la desviación estándar">
                     </div>
                 </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="normalRadio" id="normalLessThan" value="less" checked>
+                    <label class="form-check-label" for="normalLessThan">Probabilidad de X menor que</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="normalRadio" id="normalGreaterThan" value="greater">
+                    <label class="form-check-label" for="normalGreaterThan">Probabilidad de X mayor que</label>
+                </div>
                 <button id="calcNormal" class="btn btn-primary mt-3">Calcular</button>
                 <div id="normalResultado" class="mt-3"></div>
             </div>
         </div>
+
+         
 
         <!-- Distribución Beta -->
         <div class="card mt-4">

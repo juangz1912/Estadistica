@@ -3,12 +3,21 @@ document.getElementById('calcNormal').addEventListener('click', function () {
     const x = parseFloat(document.getElementById('normalX').value);
     const mean = parseFloat(document.getElementById('normalMean').value);
     const stdDev = parseFloat(document.getElementById('normalStdDev').value);
+    const isLessThan = document.querySelector('input[name="normalRadio"]:checked').value === 'less';
 
-    const z = (x - mean) / stdDev;
-    const probability = (0.5 * (1 + jStat.normal.cdf(z, 0, 1))).toFixed(4);
+    // Calculamos la probabilidad
+    const probability = isLessThan 
+        ? jStat.normal.cdf(x, mean, stdDev) // P(X ≤ x)
+        : 1 - jStat.normal.cdf(x, mean, stdDev); // P(X > x)
 
-    document.getElementById('normalResultado').innerText = `P(X ≤ ${x}) = ${probability}`;
+    // Mostrar el resultado en el formato correcto
+    const result = isLessThan 
+        ? `P(X ≤ ${x}) = ${probability.toFixed(4)}` 
+        : `P(X > ${x}) = ${probability.toFixed(4)}`;
+
+    document.getElementById('normalResultado').innerText = result;
 });
+
 
 // Función para calcular la distribución Beta
 document.getElementById('calcBeta').addEventListener('click', function () {
