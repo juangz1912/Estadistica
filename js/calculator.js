@@ -16,11 +16,11 @@ document.getElementById('calcBeta').addEventListener('click', function() {
     const x = parseFloat(document.getElementById('betaX').value);
     const alpha = parseFloat(document.getElementById('betaAlpha').value);
     const beta = parseFloat(document.getElementById('betaBeta').value);
-    if (!isNaN(x) && !isNaN(alpha) && !isNaN(beta)) {
+    if (!isNaN(x) && !isNaN(alpha) && !isNaN(beta) && x >= 0 && x <= 1) {
         const resultado = jStat.beta.pdf(x, alpha, beta);
         document.getElementById('betaResultado').innerText = `Resultado: ${resultado.toFixed(4)}`;
     } else {
-        alert('Por favor, ingresa valores válidos para x, alpha y beta.');
+        alert('Por favor, ingresa valores válidos para x (0-1), alpha y beta.');
     }
 });
 
@@ -28,11 +28,11 @@ document.getElementById('calcBeta').addEventListener('click', function() {
 document.getElementById('calcChiSquare').addEventListener('click', function() {
     const x = parseFloat(document.getElementById('chisqX').value);
     const gradosLibertad = parseFloat(document.getElementById('chisqDegFreedom').value);
-    if (!isNaN(x) && !isNaN(gradosLibertad)) {
+    if (!isNaN(x) && !isNaN(gradosLibertad) && x >= 0) {
         const resultado = jStat.chisquare.pdf(x, gradosLibertad);
         document.getElementById('chisqResultado').innerText = `Resultado: ${resultado.toFixed(4)}`;
     } else {
-        alert('Por favor, ingresa valores válidos para x y grados de libertad.');
+        alert('Por favor, ingresa valores válidos para x (≥0) y grados de libertad.');
     }
 });
 
@@ -40,11 +40,11 @@ document.getElementById('calcChiSquare').addEventListener('click', function() {
 document.getElementById('calcExponential').addEventListener('click', function() {
     const x = parseFloat(document.getElementById('exponentialX').value);
     const tasa = parseFloat(document.getElementById('exponentialRate').value);
-    if (!isNaN(x) && !isNaN(tasa)) {
+    if (!isNaN(x) && !isNaN(tasa) && x >= 0) {
         const resultado = jStat.exponential.pdf(x, tasa);
         document.getElementById('exponentialResultado').innerText = `Resultado: ${resultado.toFixed(4)}`;
     } else {
-        alert('Por favor, ingresa valores válidos para x y tasa.');
+        alert('Por favor, ingresa valores válidos para x (≥0) y tasa.');
     }
 });
 
@@ -53,11 +53,11 @@ document.getElementById('calcF').addEventListener('click', function() {
     const x = parseFloat(document.getElementById('fX').value);
     const gradosLibertad1 = parseFloat(document.getElementById('fDegFreedom1').value);
     const gradosLibertad2 = parseFloat(document.getElementById('fDegFreedom2').value);
-    if (!isNaN(x) && !isNaN(gradosLibertad1) && !isNaN(gradosLibertad2)) {
+    if (!isNaN(x) && !isNaN(gradosLibertad1) && !isNaN(gradosLibertad2) && x >= 0) {
         const resultado = jStat.f.pdf(x, gradosLibertad1, gradosLibertad2);
         document.getElementById('fResultado').innerText = `Resultado: ${resultado.toFixed(4)}`;
     } else {
-        alert('Por favor, ingresa valores válidos para x y grados de libertad.');
+        alert('Por favor, ingresa valores válidos para x (≥0) y grados de libertad.');
     }
 });
 
@@ -66,11 +66,11 @@ document.getElementById('calcGamma').addEventListener('click', function() {
     const x = parseFloat(document.getElementById('gammaX').value);
     const forma = parseFloat(document.getElementById('gammaShape').value);
     const escala = parseFloat(document.getElementById('gammaScale').value);
-    if (!isNaN(x) && !isNaN(forma) && !isNaN(escala)) {
+    if (!isNaN(x) && !isNaN(forma) && !isNaN(escala) && x >= 0) {
         const resultado = jStat.gamma.pdf(x, forma, escala);
         document.getElementById('gammaResultado').innerText = `Resultado: ${resultado.toFixed(4)}`;
     } else {
-        alert('Por favor, ingresa valores válidos para x, forma y escala.');
+        alert('Por favor, ingresa valores válidos para x (≥0), forma y escala.');
     }
 });
 
@@ -79,11 +79,11 @@ document.getElementById('calcLogNormal').addEventListener('click', function() {
     const x = parseFloat(document.getElementById('logNormalX').value);
     const media = parseFloat(document.getElementById('logNormalMean').value);
     const desviacion = parseFloat(document.getElementById('logNormalStdDev').value);
-    if (!isNaN(x) && !isNaN(media) && !isNaN(desviacion)) {
+    if (!isNaN(x) && !isNaN(media) && !isNaN(desviacion) && x > 0) {
         const resultado = jStat.lognormal.pdf(x, media, desviacion);
         document.getElementById('logNormalResultado').innerText = `Resultado: ${resultado.toFixed(4)}`;
     } else {
-        alert('Por favor, ingresa valores válidos para x, media y desviación estándar.');
+        alert('Por favor, ingresa valores válidos para x (>0), media y desviación estándar.');
     }
 });
 
@@ -100,7 +100,7 @@ document.getElementById('calcPareto').addEventListener('click', function() {
     }
 });
 
-// Distribución t
+// Distribución t de Student
 document.getElementById('calcT').addEventListener('click', function() {
     const x = parseFloat(document.getElementById('tX').value);
     const gradosLibertad = parseFloat(document.getElementById('tDegFreedom').value);
