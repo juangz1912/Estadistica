@@ -1,75 +1,238 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Statistics Calculator</title>
+    <title>Calculadora Estadística</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center">Statistics Calculator</h1>
+        <h1 class="text-center">Calculadora Estadística</h1>
 
-        <!-- Normal Distribution -->
+        <!-- Distribución Normal -->
         <div class="card mt-4">
             <div class="card-body">
-                <h5 class="card-title">Normal Distribution</h5>
+                <h5 class="card-title">Distribución Normal</h5>
                 <div class="row">
-                    <div class="col-md-6">
-                        <label for="normalMean" class="form-label">Mean (μ):</label>
-                        <input type="number" class="form-control" id="normalMean" placeholder="Enter mean">
+                    <div class="col-md-4">
+                        <label for="normalX" class="form-label">Valor de X:</label>
+                        <input type="number" class="form-control" id="normalX" placeholder="Ingresa valor de x">
                     </div>
-                    <div class="col-md-6">
-                        <label for="normalStdDev" class="form-label">Standard Deviation (σ):</label>
-                        <input type="number" class="form-control" id="normalStdDev" placeholder="Enter standard deviation">
+                    <div class="col-md-4">
+                        <label for="normalMean" class="form-label">Media (μ):</label>
+                        <input type="number" class="form-control" id="normalMean" placeholder="Ingresa la media">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="normalStdDev" class="form-label">Desviación Estándar (σ):</label>
+                        <input type="number" class="form-control" id="normalStdDev" placeholder="Ingresa la desviación estándar">
                     </div>
                 </div>
-                <button id="calcNormal" class="btn btn-primary mt-3">Calculate</button>
-                <div id="normalResult" class="mt-3"></div>
+                <button id="calcNormal" class="btn btn-primary mt-3">Calcular</button>
+                <div id="normalResultado" class="mt-3"></div>
             </div>
         </div>
 
-        <!-- Beta Distribution -->
+        <!-- Distribución Beta -->
         <div class="card mt-4">
             <div class="card-body">
-                <h5 class="card-title">Beta Distribution</h5>
+                <h5 class="card-title">Distribución Beta</h5>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
+                        <label for="betaX" class="form-label">Valor de X:</label>
+                        <input type="number" step="0.01" class="form-control" id="betaX" placeholder="Ingresa valor de x">
+                    </div>
+                    <div class="col-md-4">
                         <label for="betaAlpha" class="form-label">Alpha (α):</label>
-                        <input type="number" class="form-control" id="betaAlpha" placeholder="Enter alpha">
+                        <input type="number" class="form-control" id="betaAlpha" placeholder="Ingresa alpha">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <label for="betaBeta" class="form-label">Beta (β):</label>
-                        <input type="number" class="form-control" id="betaBeta" placeholder="Enter beta">
+                        <input type="number" class="form-control" id="betaBeta" placeholder="Ingresa beta">
                     </div>
                 </div>
-                <button id="calcBeta" class="btn btn-primary mt-3">Calculate</button>
-                <div id="betaResult" class="mt-3"></div>
+                <button id="calcBeta" class="btn btn-primary mt-3">Calcular</button>
+                <div id="betaResultado" class="mt-3"></div>
             </div>
         </div>
 
-        <!-- Chi-square Distribution -->
+        <!-- Distribución Chi-cuadrado -->
         <div class="card mt-4">
             <div class="card-body">
-                <h5 class="card-title">Chi-square Distribution</h5>
+                <h5 class="card-title">Distribución Chi-cuadrado</h5>
                 <div class="row">
-                    <div class="col-md-6">
-                        <label for="chisqDegFreedom" class="form-label">Degrees of Freedom (df):</label>
-                        <input type="number" class="form-control" id="chisqDegFreedom" placeholder="Enter degrees of freedom">
+                    <div class="col-md-4">
+                        <label for="chisqX" class="form-label">Valor de X:</label>
+                        <input type="number" class="form-control" id="chisqX" placeholder="Ingresa valor de x">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="chisqDegFreedom" class="form-label">Grados de Libertad:</label>
+                        <input type="number" class="form-control" id="chisqDegFreedom" placeholder="Ingresa grados de libertad">
                     </div>
                 </div>
-                <button id="calcChiSquare" class="btn btn-primary mt-3">Calculate</button>
-                <div id="chisqResult" class="mt-3"></div>
+                <button id="calcChiSquare" class="btn btn-primary mt-3">Calcular</button>
+                <div id="chisqResultado" class="mt-3"></div>
             </div>
         </div>
 
-        <!-- Add cards for Exponential, F, Gamma, Log-normal, Pareto, t, and Binomial -->
+        <!-- Distribución Exponencial -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Distribución Exponencial</h5>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="exponentialX" class="form-label">Valor de X:</label>
+                        <input type="number" class="form-control" id="exponentialX" placeholder="Ingresa valor de x">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="exponentialRate" class="form-label">Tasa (λ):</label>
+                        <input type="number" class="form-control" id="exponentialRate" placeholder="Ingresa la tasa (lambda)">
+                    </div>
+                </div>
+                <button id="calcExponential" class="btn btn-primary mt-3">Calcular</button>
+                <div id="exponentialResultado" class="mt-3"></div>
+            </div>
+        </div>
+
+        <!-- Distribución F -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Distribución F</h5>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="fX" class="form-label">Valor de X:</label>
+                        <input type="number" class="form-control" id="fX" placeholder="Ingresa valor de x">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="fDegFreedom1" class="form-label">Grados de Libertad 1:</label>
+                        <input type="number" class="form-control" id="fDegFreedom1" placeholder="Ingresa grados de libertad 1">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="fDegFreedom2" class="form-label">Grados de Libertad 2:</label>
+                        <input type="number" class="form-control" id="fDegFreedom2" placeholder="Ingresa grados de libertad 2">
+                    </div>
+                </div>
+                <button id="calcF" class="btn btn-primary mt-3">Calcular</button>
+                <div id="fResultado" class="mt-3"></div>
+            </div>
+        </div>
+
+        <!-- Distribución Gamma -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Distribución Gamma</h5>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="gammaX" class="form-label">Valor de X:</label>
+                        <input type="number" class="form-control" id="gammaX" placeholder="Ingresa valor de x">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="gammaShape" class="form-label">Forma (k):</label>
+                        <input type="number" class="form-control" id="gammaShape" placeholder="Ingresa forma (k)">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="gammaScale" class="form-label">Escala (θ):</label>
+                        <input type="number" class="form-control" id="gammaScale" placeholder="Ingresa escala (theta)">
+                    </div>
+                </div>
+                <button id="calcGamma" class="btn btn-primary mt-3">Calcular</button>
+                <div id="gammaResultado" class="mt-3"></div>
+            </div>
+        </div>
+
+        <!-- Distribución Log-normal -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Distribución Log-normal</h5>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="logNormalX" class="form-label">Valor de X:</label>
+                        <input type="number" class="form-control" id="logNormalX" placeholder="Ingresa valor de x">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="logNormalMean" class="form-label">Media (μ):</label>
+                        <input type="number" class="form-control" id="logNormalMean" placeholder="Ingresa la media">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="logNormalStdDev" class="form-label">Desviación Estándar (σ):</label>
+                        <input type="number" class="form-control" id="logNormalStdDev" placeholder="Ingresa la desviación estándar">
+                    </div>
+                </div>
+                <button id="calcLogNormal" class="btn btn-primary mt-3">Calcular</button>
+                <div id="logNormalResultado" class="mt-3"></div>
+            </div>
+        </div>
+
+        <!-- Distribución Pareto -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Distribución Pareto</h5>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="paretoX" class="form-label">Valor de X:</label>
+                        <input type="number" class="form-control" id="paretoX" placeholder="Ingresa valor de x">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="paretoAlpha" class="form-label">Alpha (α):</label>
+                        <input type="number" class="form-control" id="paretoAlpha" placeholder="Ingresa alpha">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="paretoXMin" class="form-label">X mínimo:</label>
+                        <input type="number" class="form-control" id="paretoXMin" placeholder="Ingresa X mínimo">
+                    </div>
+                </div>
+                <button id="calcPareto" class="btn btn-primary mt-3">Calcular</button>
+                <div id="paretoResultado" class="mt-3"></div>
+            </div>
+        </div>
+
+        <!-- Distribución t -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Distribución t</h5>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="tX" class="form-label">Valor de X:</label>
+                        <input type="number" class="form-control" id="tX" placeholder="Ingresa valor de x">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="tDegFreedom" class="form-label">Grados de Libertad:</label>
+                        <input type="number" class="form-control" id="tDegFreedom" placeholder="Ingresa grados de libertad">
+                    </div>
+                </div>
+                <button id="calcT" class="btn btn-primary mt-3">Calcular</button>
+                <div id="tResultado" class="mt-3"></div>
+            </div>
+        </div>
+
+        <!-- Distribución Binomial -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Distribución Binomial</h5>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="binomialN" class="form-label">Número de Pruebas (n):</label>
+                        <input type="number" class="form-control" id="binomialN" placeholder="Ingresa n">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="binomialK" class="form-label">Número de Éxitos (k):</label>
+                        <input type="number" class="form-control" id="binomialK" placeholder="Ingresa k">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="binomialP" class="form-label">Probabilidad de Éxito (p):</label>
+                        <input type="number" step="0.01" class="form-control" id="binomialP" placeholder="Ingresa p">
+                    </div>
+                </div>
+                <button id="calcBinomial" class="btn btn-primary mt-3">Calcular</button>
+                <div id="binomialResultado" class="mt-3"></div>
+            </div>
+        </div>
 
     </div>
 
-    <!-- External Scripts -->
-    <script src="libs/jstat.min.js"></script>
-    <script src="js/calculator.js"></script>
+    <!-- Biblioteca jStat desde CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstat/1.9.4/jstat.min.js"></script>
+    <script src="js/calculadora.js"></script>
 </body>
 </html>
